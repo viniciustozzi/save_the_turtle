@@ -4,29 +4,37 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveState))]
+[RequireComponent(typeof(DefendState))]
+[RequireComponent(typeof(Life))]
 public class TurtleBehaviour : MonoBehaviour
 {
-
     private StateMachine mStateMachine;
-    private MoveState move;
+    private MoveState mMove;
+    private DefendState mDefend;
+    private Life mLife;
 
     private void Start()
     {
-        //Get the components of each beahaviour(state) of the turtle and set the onChangeState callback
-        move = GetComponent<MoveState>();
-        move._onChangeState = OnChangeState;
+        mLife = GetComponent<Life>();
+
+        //Get the components of each beahaviour(state) of the turtle and set the onChangeState callback and the edges
+        mMove = GetComponent<MoveState>();
+        mMove._onChangeState = OnChangeState;
+
+        mDefend = GetComponent<DefendState>();
+        mDefend._onChangeState = OnChangeState;
 
         //Add the states to the state machine
-        mStateMachine.AddState(move);
+        mStateMachine = new StateMachine();
+        mStateMachine.AddState(mMove, new List<Edge>()
+        {
+            new Edge(Transition.OnFloor, mDefend)
+        });
+       
     }
 
-    public void OnChangeState(Node nextState)
+    public void OnChangeState(Transition t)
     {
-        var nodeComponentsVector = GetComponents<Node>();
-        List<Node> components = new List<Node>(nodeComponentsVector);
-
-        components.ForEach(x => x.enabled = false);
-
-        components.FirstOrDefault(x => x.GetType() == nextState.GetType()).enabled = true;
+        mStateMachine.OnChangeState(t);
     }
 }
