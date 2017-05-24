@@ -1,11 +1,14 @@
-﻿public enum States
-{
-    Walking,
-    Defending
-}
-
-public enum Transition
+﻿public enum Transition
 {
     OnFloor,
-    EnemyArround
+    EnemyArround,
+    CutVinePlant,
+    IceSliding
+}
+
+public enum DrawType
+{
+    Box,
+    CutVine,
+    IceRamp,
 }
