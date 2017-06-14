@@ -3,7 +3,8 @@
     OnFloor,
     EnemyArround,
     CutVinePlant,
-    IceSliding
+    IceSliding,
+    EndDefenseTime
 }
 
 public enum DrawType

@@ -14,6 +14,14 @@ public class StateMachine
         states = new List<Node>();
     }
 
+    public void AddState(Node state)
+    {
+        if (states.Count == 0)
+            currentState = state;
+
+        states.Add(state);
+    }
+
     public void AddState(Node state, List<Edge> edges)
     {
         state.AddEdges(edges);

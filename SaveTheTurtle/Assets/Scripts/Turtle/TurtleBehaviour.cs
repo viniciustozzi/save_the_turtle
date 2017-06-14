@@ -32,9 +32,15 @@ public class TurtleBehaviour : MonoBehaviour
 
         //Add the states to the state machine
         mStateMachine = new StateMachine();
+
         mStateMachine.AddState(mMove, new List<Edge>()
         {
             new Edge(Transition.OnFloor, mDefend)
+        });
+
+        mStateMachine.AddState(mDefend, new List<Edge>()
+        {
+            new Edge(Transition.EndDefenseTime, mMove)
         });
 
     }
