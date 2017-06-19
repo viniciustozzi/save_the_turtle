@@ -13,3 +13,9 @@ public enum DrawType
     CutVine,
     IceRamp,
 }
+
+public enum GameState
+{
+    Running,
+    Death
+}

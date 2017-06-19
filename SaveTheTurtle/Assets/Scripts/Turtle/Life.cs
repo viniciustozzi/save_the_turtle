@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
+    private GameManager mGameManager;
+
     public int totalLife;
 
     public int CurrentLife { get; set; }
@@ -16,6 +18,11 @@ public class Life : MonoBehaviour
         CurrentLife = totalLife;
     }
 
+    private void Start()
+    {
+        mGameManager = FindObjectOfType<GameManager>();
+    }
+
     public void TakeDamage(int damage)
     {
         if (IsDefending)
@@ -25,5 +32,10 @@ public class Life : MonoBehaviour
 
         if (_OnTakeDamage != null)
             _OnTakeDamage.Invoke();
+
+        if (CurrentLife <= 0)
+        {
+            mGameManager.OnPlayerDeath();
+        }
     }
 }
