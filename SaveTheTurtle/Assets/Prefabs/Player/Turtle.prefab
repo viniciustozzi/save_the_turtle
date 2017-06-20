@@ -26,13 +26,30 @@ GameObject:
   - component: {fileID: 114940255170939558}
   - component: {fileID: 114936156068333216}
   - component: {fileID: 61348684068610494}
+  - component: {fileID: 114342232999829258}
+  - component: {fileID: 114023521281649116}
+  - component: {fileID: 114959926319350120}
   - component: {fileID: 212234799681865726}
   - component: {fileID: 95147621848292062}
-  - component: {fileID: 114023521281649116}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Player
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1193282865674404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4408244549702560}
+  m_Layer: 0
+  m_Name: groundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -148,6 +165,7 @@ Transform:
   - {fileID: 4369934268390762}
   - {fileID: 4467624548318222}
   - {fileID: 4981568778683210}
+  - {fileID: 4408244549702560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,6 +195,19 @@ Transform:
   m_Father: {fileID: 4264703150393664}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.361004}
+--- !u!4 &4408244549702560
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193282865674404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.318, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4264703150393664}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4467624548318222
 Transform:
   m_ObjectHideFlags: 1
@@ -313,6 +344,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bb99c965980ad48af20366d35f7d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mMove: {fileID: 114681602781411902}
+  mDefend: {fileID: 114850160835078658}
+  mVineTrapped: {fileID: 114023521281649116}
+  mFalling: {fileID: 114959926319350120}
+  mLadder: {fileID: 114342232999829258}
+--- !u!114 &114342232999829258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163299251448420}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b711917d6493e4abd670f1131769ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114681602781411902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,6 +372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  groundCheck: {fileID: 4408244549702560}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &114850160835078658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,6 +410,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalLife: 5
+--- !u!114 &114959926319350120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163299251448420}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4d05c1a399da14bb131bda9f273f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212234799681865726
 SpriteRenderer:
   m_ObjectHideFlags: 1

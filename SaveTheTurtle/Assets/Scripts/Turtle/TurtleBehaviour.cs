@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(MoveState))]
-[RequireComponent(typeof(DefendState))]
-[RequireComponent(typeof(Life))]
 public class TurtleBehaviour : MonoBehaviour
 {
+    public MoveState mMove;
+    public DefendState mDefend;
+    public TrappedVineState mVineTrapped;
+    public FallingState mFalling;
+    public ClimbingLadderState mLadder;
+
     private StateMachine mStateMachine;
-
-    private MoveState mMove;
-    private DefendState mDefend;
-    private TrappedVineState mVineTrapped;
-
     private Life mLife;
 
     private void Start()
@@ -24,25 +22,48 @@ public class TurtleBehaviour : MonoBehaviour
         mMove = GetComponent<MoveState>();
         mMove._onChangeState = OnChangeState;
 
-        mDefend = GetComponent<DefendState>();
-        mDefend._onChangeState = OnChangeState;
+        mFalling = GetComponent<FallingState>();
+        mFalling._onChangeState = OnChangeState;
 
         mVineTrapped = GetComponent<TrappedVineState>();
         mVineTrapped._onChangeState = OnChangeState;
+
+        mLadder = GetComponent<ClimbingLadderState>();
+        mLadder._onChangeState = OnChangeState;
 
         //Add the states to the state machine
         mStateMachine = new StateMachine();
 
         mStateMachine.AddState(mMove, new List<Edge>()
         {
-            new Edge(Transition.OnFloor, mDefend)
+            new Edge(mMove, Transition.NotGrounded, mFalling),
+            new Edge(mMove, Transition.FindLadder, mLadder),
+            new Edge(mMove, Transition.VineTrapped, mVineTrapped)
         });
 
-        mStateMachine.AddState(mDefend, new List<Edge>()
+        mStateMachine.AddState(mFalling, new List<Edge>()
         {
-            new Edge(Transition.EndDefenseTime, mMove)
+            new Edge(mFalling, Transition.Grounded, mMove),
+            new Edge(mFalling, Transition.VineTrapped, mVineTrapped)
+         });
+
+        mStateMachine.AddState(mVineTrapped, new List<Edge>()
+        {
+            new Edge(mVineTrapped, Transition.CutVinePlant, mMove)
         });
 
+        mStateMachine.AddState(mLadder, new List<Edge>()
+        {
+            new Edge(mLadder, Transition.ExitLadder, mMove)
+        });
+
+        //mDefend = GetComponent<DefendState>();
+        //mDefend._onChangeState = OnChangeState;
+
+        //mStateMachine.AddState(mDefend, new List<Edge>()
+        //{
+
+        //});
     }
 
     public void OnChangeState(Transition t)
@@ -58,8 +79,6 @@ public class TurtleBehaviour : MonoBehaviour
                 break;
             case DrawType.CutVine:
                 mVineTrapped.ApplyCutDraw();
-                break;
-            case DrawType.IceRamp:
                 break;
         }
     }

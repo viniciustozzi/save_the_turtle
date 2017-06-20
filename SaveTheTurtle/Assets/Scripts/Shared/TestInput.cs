@@ -17,7 +17,5 @@ public class TestInput : MonoBehaviour
             mTurtle.ApplyDraw(DrawType.Box);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
             mTurtle.ApplyDraw(DrawType.CutVine);
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-            mTurtle.ApplyDraw(DrawType.IceRamp);
     }
 }

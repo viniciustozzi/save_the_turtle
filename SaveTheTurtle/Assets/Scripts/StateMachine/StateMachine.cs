@@ -34,8 +34,13 @@ public class StateMachine
 
     public void OnChangeState(Transition t)
     {
+        Edge edgeToNextState = currentState.Edges.FirstOrDefault(x => x.Transition == t);
+
+        if (edgeToNextState == null)
+            return;
+
         currentState.enabled = false;
-        currentState = currentState.Edges.FirstOrDefault(x => x.Transition == t).To;
+        currentState = edgeToNextState.To;
         currentState.enabled = true;
     }
 }

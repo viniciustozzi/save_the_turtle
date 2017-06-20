@@ -6,6 +6,8 @@ using UnityEngine;
 public class MoveState : Node
 {
     public float speed;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
 
     private Rigidbody2D mBody;
 
@@ -19,11 +21,17 @@ public class MoveState : Node
         mBody.velocity = new Vector2(speed, mBody.velocity.y);
     }
 
-    private void Update()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            _onChangeState.Invoke(Transition.OnFloor);
-        }
+        if (collision.transform.tag == Tags.Ground)
+            _onChangeState.Invoke(Transition.NotGrounded);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == Tags.Ladder)
+            _onChangeState.Invoke(Transition.FindLadder);
+        else if (collision.transform.tag == Tags.VineTrap)
+            _onChangeState.Invoke(Transition.VineTrapped);
     }
 }

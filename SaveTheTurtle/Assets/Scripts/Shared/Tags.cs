@@ -10,4 +10,7 @@ public static class Tags
     public static string GameController = "GameController";
     public static string Damage = "Damage";
     public static string Death = "Death";
+    public static string Ground = "Ground";
+    public static string Ladder = "Ladder";
+    public static string VineTrap = "VineTrap";
 }

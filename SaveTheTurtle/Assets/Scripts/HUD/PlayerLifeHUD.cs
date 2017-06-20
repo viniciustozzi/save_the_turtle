@@ -17,12 +17,13 @@ public class PlayerLifeHUD : MonoBehaviour
 
         GetChildrenHearts();
 
-        mLife = FindObjectOfType<TurtleBehaviour>().GetComponent<Life>();
+        Invoke("GetPlayerRef", 0.1f);
+    }
 
-        if (mLife == null)
-            Debug.LogWarning("Não encontrou o player turtle na cena.");
-        else
-            mLife._OnTakeDamage = UpdateHUD;
+    private void GetPlayerRef()
+    {
+        mLife = FindObjectOfType<TurtleBehaviour>().GetComponent<Life>();
+        mLife._OnTakeDamage = UpdateHUD;
     }
 
     public void UpdateHUD()

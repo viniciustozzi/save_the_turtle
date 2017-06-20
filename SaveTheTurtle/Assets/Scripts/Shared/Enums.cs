@@ -1,17 +1,18 @@
 ﻿public enum Transition
 {
     OnFloor,
-    EnemyArround,
     CutVinePlant,
-    IceSliding,
-    EndDefenseTime
+    NotGrounded,
+    FindLadder,
+    VineTrapped,
+    Grounded,
+    ExitLadder
 }
 
 public enum DrawType
 {
     Box,
     CutVine,
-    IceRamp,
 }
 
 public enum GameState
