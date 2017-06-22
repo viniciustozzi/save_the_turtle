@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114940255170939558}
   - component: {fileID: 114936156068333216}
   - component: {fileID: 61348684068610494}
+  - component: {fileID: 61376547864674410}
   - component: {fileID: 114342232999829258}
   - component: {fileID: 114023521281649116}
   - component: {fileID: 114959926319350120}
@@ -156,12 +157,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163299251448420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.53, y: -1.58, z: 0}
+  m_LocalPosition: {x: -1.31, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355930006796696}
-  - {fileID: 4826197432105948}
   - {fileID: 4927658019839384}
+  - {fileID: 4826197432105948}
   - {fileID: 4369934268390762}
   - {fileID: 4467624548318222}
   - {fileID: 4981568778683210}
@@ -214,13 +215,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920793863515116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.233558, w: 0.9723429}
   m_LocalPosition: {x: -0.213, y: -0.138, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4264703150393664}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.013}
 --- !u!4 &4826197432105948
 Transform:
   m_ObjectHideFlags: 1
@@ -232,7 +233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4264703150393664}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4927658019839384
 Transform:
@@ -245,7 +246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4264703150393664}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4981568778683210
 Transform:
@@ -305,6 +306,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0245476, y: 0.56760657}
   m_EdgeRadius: 0
+--- !u!61 &61376547864674410
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163299251448420}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09819126, y: -0.03658706}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0245476, y: 0.56760657}
+  m_EdgeRadius: 0
 --- !u!95 &95147621848292062
 Animator:
   serializedVersion: 3
@@ -333,6 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcda82f08027486439fc3bdd5f908ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mLife: {fileID: 114940255170939558}
+  mBody: {fileID: 50652787630493374}
+  mAnim: {fileID: 95147621848292062}
 --- !u!114 &114315333780403746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b711917d6493e4abd670f1131769ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mAnim: {fileID: 95147621848292062}
 --- !u!114 &114681602781411902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,6 +406,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  mBody: {fileID: 50652787630493374}
 --- !u!114 &114850160835078658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9afe58faaefd14587d1ac31b0e1fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mLife: {fileID: 114940255170939558}
+  mBody: {fileID: 50652787630493374}
 --- !u!114 &114936156068333216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,6 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4d05c1a399da14bb131bda9f273f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mAnim: {fileID: 95147621848292062}
 --- !u!212 &212234799681865726
 SpriteRenderer:
   m_ObjectHideFlags: 1

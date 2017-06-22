@@ -21,7 +21,7 @@ public class TurtleBehaviour : MonoBehaviour
         //Get the components of each beahaviour(state) of the turtle and set the onChangeState callback and the edges
         mMove = GetComponent<MoveState>();
         mMove._onChangeState = OnChangeState;
-
+            
         mFalling = GetComponent<FallingState>();
         mFalling._onChangeState = OnChangeState;
 

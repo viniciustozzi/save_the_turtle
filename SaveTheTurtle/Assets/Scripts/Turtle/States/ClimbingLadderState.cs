@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClimbingLadderState : Node
 {
-    private Animator mAnim;
+    public Animator mAnim;
 
     private void Start()
     {

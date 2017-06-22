@@ -8,8 +8,7 @@ public class MoveState : Node
     public float speed;
     public Transform groundCheck;
     public LayerMask groundLayer;
-
-    private Rigidbody2D mBody;
+    public Rigidbody2D mBody;
 
     private void Start()
     {
@@ -33,5 +32,11 @@ public class MoveState : Node
             _onChangeState.Invoke(Transition.FindLadder);
         else if (collision.transform.tag == Tags.VineTrap)
             _onChangeState.Invoke(Transition.VineTrapped);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == Tags.Stair)
+            _onChangeState.Invoke(Transition.FindLadder);
     }
 }

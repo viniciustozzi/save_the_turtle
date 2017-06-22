@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class FallingState : Node
 {
-    private Animator mAnim;
-
-    private void Start()
-    {
-        mAnim = GetComponent<Animator>();
-    }
+    public Animator mAnim;
 
     private void OnEnable()
     {
-        //TODO: Tocar animação da tartaruga caindo
+        mAnim.SetBool(AnimParams.IsFalling, true);
+    }
+
+    private void OnDisable()
+    {
+        mAnim.SetBool(AnimParams.IsFalling, false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

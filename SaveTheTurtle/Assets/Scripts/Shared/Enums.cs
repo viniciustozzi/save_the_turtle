@@ -13,6 +13,7 @@ public enum DrawType
 {
     Box,
     CutVine,
+    Stair
 }
 
 public enum GameState

@@ -4,8 +4,8 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class DefendState : Node
 {
-    private Life mLife;
-    private Rigidbody2D mBody;
+    public Life mLife;
+    public Rigidbody2D mBody;
 
     private void Start()
     {

@@ -5,28 +5,32 @@ using UnityEngine;
 public class TrappedVineState : Node
 {
 
-    private Life mLife;
-    private Rigidbody2D mBody;
-    private Animator mAnim;
+    public Life mLife;
+    public Rigidbody2D mBody;
+    public Animator mAnim;
 
-    void Start()
-    {
-        mLife = GetComponent<Life>();
-        mBody = GetComponent<Rigidbody2D>();
-        mAnim = GetComponent<Animator>();
-    }
+    private GameObject lastVineTouched;
 
     private void OnEnable()
     {
-        //TODO: Criar classe para os nomes do parametro do animator e verificar pq rigidbody está nulo
-        //mAnim.SetBool("")
+        mAnim.SetBool(AnimParams.IsVineTrapped, true);
         mBody.velocity = Vector3.zero;
         InvokeRepeating("ApplyVineDamage", 0, 2.5f);
     }
 
     private void OnDisable()
     {
+        mAnim.SetBool(AnimParams.IsVineTrapped, false);
+
         CancelInvoke();
+
+        lastVineTouched.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == Tags.VineTrap)
+            lastVineTouched = collision.gameObject;
     }
 
     public void ApplyVineDamage()

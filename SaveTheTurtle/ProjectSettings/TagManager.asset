@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Ladder
   - VineTrap
+  - Stair
   layers:
   - Default
   - TransparentFX

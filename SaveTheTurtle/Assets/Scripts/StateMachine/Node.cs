@@ -8,10 +8,6 @@ public class Node : MonoBehaviour
     public List<Edge> Edges { get; set; }
     public Action<Transition> _onChangeState { get; set; }
 
-    private void Awake()
-    {
-        Edges = new List<Edge>();
-    }
 
     public void AddEdge(Edge e)
     {
@@ -20,6 +16,8 @@ public class Node : MonoBehaviour
 
     public void AddEdges(List<Edge> edges)
     {
+        Edges = new List<Edge>();
+
         Edges.AddRange(edges);
     }
 
