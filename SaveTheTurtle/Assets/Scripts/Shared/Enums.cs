@@ -13,9 +13,11 @@
 
 public enum DrawType
 {
+    Stair,
     Box,
-    CutVine,
-    Stair
+    Plank,
+    Boat,
+    X
 }
 
 public enum GameState

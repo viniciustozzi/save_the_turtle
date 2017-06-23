@@ -15,4 +15,9 @@ public static class Tags
     public static string VineTrap = "VineTrap";
     public static string Stair = "Stair";
     public static string Boat = "Boat";
+
+    public static string BoxTrigger = "BoxTrigger";
+    public static string PlankTrigger = "PlankTrigger";
+    public static string StairTrigger = "StairTrigger";
+    public static string BoatTrigger = "BoatTrigger";
 }

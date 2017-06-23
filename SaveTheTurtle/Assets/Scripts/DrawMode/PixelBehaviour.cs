@@ -7,11 +7,12 @@ public class PixelBehaviour : MonoBehaviour
 {
     private Image img;
     private bool mIsPressing;
+    private readonly Color whiteTransp = new Color(0, 0, 0, 0.0f);
 
     private void Start()
     {
         img = GetComponent<Image>();
-        img.color = Color.white;
+        img.color = whiteTransp;
     }
 
     private void Update()

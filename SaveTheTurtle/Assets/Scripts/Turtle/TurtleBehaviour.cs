@@ -74,10 +74,13 @@ public class TurtleBehaviour : MonoBehaviour
     {
         switch (draw)
         {
+            case DrawType.Stair:
+                break;
             case DrawType.Box:
                 break;
-            case DrawType.CutVine:
-                mVineTrapped.ApplyCutDraw();
+            case DrawType.Plank:
+                break;
+            case DrawType.Boat:
                 break;
         }
     }

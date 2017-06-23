@@ -32,10 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnVictory()
-    {
-        Debug.Log("VITÓRIA!!!!");
-    }
+    
 
     #endregion
 
@@ -50,6 +47,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
 
+    }
+
+    public void OnVictory()
+    {
+        Debug.Log("VITÓRIA!!!!");
     }
 
     private void InstantiatePlayer()

@@ -11,6 +11,10 @@ TagManager:
   - VineTrap
   - Stair
   - Boat
+  - BoxTrigger
+  - PlankTrigger
+  - StairTrigger
+  - BoatTrigger
   layers:
   - Default
   - TransparentFX
