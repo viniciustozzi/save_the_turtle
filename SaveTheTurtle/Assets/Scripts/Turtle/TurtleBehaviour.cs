@@ -10,26 +10,19 @@ public class TurtleBehaviour : MonoBehaviour
     public TrappedVineState mVineTrapped;
     public FallingState mFalling;
     public ClimbingLadderState mLadder;
+    public OnBoatState mBoat;
 
     private StateMachine mStateMachine;
-    private Life mLife;
+    //private Life mLife;
 
     private void Start()
     {
-        mLife = GetComponent<Life>();
-
-        //Get the components of each beahaviour(state) of the turtle and set the onChangeState callback and the edges
-        mMove = GetComponent<MoveState>();
+        //Set the callback for state change
         mMove._onChangeState = OnChangeState;
-            
-        mFalling = GetComponent<FallingState>();
         mFalling._onChangeState = OnChangeState;
-
-        mVineTrapped = GetComponent<TrappedVineState>();
         mVineTrapped._onChangeState = OnChangeState;
-
-        mLadder = GetComponent<ClimbingLadderState>();
         mLadder._onChangeState = OnChangeState;
+        mBoat._onChangeState = OnChangeState;
 
         //Add the states to the state machine
         mStateMachine = new StateMachine();
@@ -38,7 +31,8 @@ public class TurtleBehaviour : MonoBehaviour
         {
             new Edge(mMove, Transition.NotGrounded, mFalling),
             new Edge(mMove, Transition.FindLadder, mLadder),
-            new Edge(mMove, Transition.VineTrapped, mVineTrapped)
+            new Edge(mMove, Transition.VineTrapped, mVineTrapped),
+            new Edge(mMove, Transition.EnterBoat, mBoat)
         });
 
         mStateMachine.AddState(mFalling, new List<Edge>()
@@ -55,6 +49,11 @@ public class TurtleBehaviour : MonoBehaviour
         mStateMachine.AddState(mLadder, new List<Edge>()
         {
             new Edge(mLadder, Transition.ExitLadder, mMove)
+        });
+
+        mStateMachine.AddState(mBoat, new List<Edge>()
+        {
+            new Edge(mBoat, Transition.ExitBoat, mMove)
         });
 
         //mDefend = GetComponent<DefendState>();

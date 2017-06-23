@@ -38,5 +38,8 @@ public class MoveState : Node
     {
         if (collider.tag == Tags.Stair)
             _onChangeState.Invoke(Transition.FindLadder);
+
+        if (collider.tag == Tags.Boat)
+            _onChangeState.Invoke(Transition.EnterBoat);
     }
 }

@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114959926319350120}
   - component: {fileID: 212234799681865726}
   - component: {fileID: 95147621848292062}
+  - component: {fileID: 114912349854783536}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Player
@@ -156,8 +157,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163299251448420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.31, y: -0.17, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.27, y: 2.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355930006796696}
@@ -378,6 +379,7 @@ MonoBehaviour:
   mVineTrapped: {fileID: 114023521281649116}
   mFalling: {fileID: 114959926319350120}
   mLadder: {fileID: 114342232999829258}
+  mBoat: {fileID: 114912349854783536}
 --- !u!114 &114342232999829258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +392,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAnim: {fileID: 95147621848292062}
+  StairStep1: {fileID: 0}
+  StairStep2: {fileID: 0}
+  StairStep3: {fileID: 0}
+  StairStep4: {fileID: 0}
+  StairStep5: {fileID: 0}
 --- !u!114 &114681602781411902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,13 +427,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mLife: {fileID: 114940255170939558}
   mBody: {fileID: 50652787630493374}
+--- !u!114 &114912349854783536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163299251448420}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de8c6ec6f2e57245861bbb2c2add3e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boat: {fileID: 0}
+  turtleOnBoat: {fileID: 0}
+  turtleOnFloor: {fileID: 0}
 --- !u!114 &114936156068333216
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163299251448420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37fed072975b6924dac94ffb4db1cb3b, type: 3}
   m_Name: 
@@ -437,12 +458,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163299251448420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c751b051192400f4683d50963b0de38c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 5
 --- !u!114 &114959926319350120
 MonoBehaviour:
   m_ObjectHideFlags: 1

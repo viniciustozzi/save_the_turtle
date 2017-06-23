@@ -10,6 +10,7 @@ TagManager:
   - Ladder
   - VineTrap
   - Stair
+  - Boat
   layers:
   - Default
   - TransparentFX

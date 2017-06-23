@@ -6,7 +6,9 @@
     FindLadder,
     VineTrapped,
     Grounded,
-    ExitLadder
+    ExitLadder,
+    ExitBoat,
+    EnterBoat
 }
 
 public enum DrawType

@@ -7,19 +7,17 @@ public class Life : MonoBehaviour
 {
     private GameManager mGameManager;
 
-    public int totalLife;
+    private int totalLife;
 
     public int CurrentLife { get; set; }
     public Action _OnTakeDamage { get; set; }
     public bool IsDefending { get; set; }
 
-    private void Awake()
-    {
-        CurrentLife = totalLife;
-    }
-
     private void Start()
     {
+        totalLife = 5;
+        CurrentLife = totalLife;
+
         mGameManager = FindObjectOfType<GameManager>();
     }
 
