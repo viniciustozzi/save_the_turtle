@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163299251448420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.27, y: 2.63, z: 0}
+  m_LocalPosition: {x: -40.11, y: 4.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355930006796696}
@@ -380,6 +380,10 @@ MonoBehaviour:
   mFalling: {fileID: 114959926319350120}
   mLadder: {fileID: 114342232999829258}
   mBoat: {fileID: 114912349854783536}
+  box: {fileID: 0}
+  plank: {fileID: 0}
+  stair: {fileID: 0}
+  boat: {fileID: 0}
 --- !u!114 &114342232999829258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,6 +445,7 @@ MonoBehaviour:
   boat: {fileID: 0}
   turtleOnBoat: {fileID: 0}
   turtleOnFloor: {fileID: 0}
+  endOfWay: {fileID: 0}
 --- !u!114 &114936156068333216
 MonoBehaviour:
   m_ObjectHideFlags: 1

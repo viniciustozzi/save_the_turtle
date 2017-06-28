@@ -65,6 +65,7 @@ public class DrawMode : MonoBehaviour
 
         mNetwork.SendData(m, (int res) =>
         {
+            Debug.Log((DrawType)res);
             mTurtle.ApplyDraw((DrawType)res);
         });
 

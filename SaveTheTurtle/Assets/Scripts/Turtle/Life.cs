@@ -23,17 +23,17 @@ public class Life : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (IsDefending)
-            return;
+        //if (IsDefending)
+        //    return;
 
-        CurrentLife -= damage;
+        //CurrentLife -= damage;
 
-        if (_OnTakeDamage != null)
-            _OnTakeDamage.Invoke();
+        //if (_OnTakeDamage != null)
+        //    _OnTakeDamage.Invoke();
 
-        if (CurrentLife <= 0)
-        {
-            mGameManager.OnPlayerDeath();
-        }
+        //if (CurrentLife <= 0)
+        //{
+        //    mGameManager.OnPlayerDeath();
+        //}
     }
 }

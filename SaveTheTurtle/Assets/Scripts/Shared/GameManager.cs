@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
     #endregion
 
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void OnVictory()
     {
-        Debug.Log("VITÓRIA!!!!");
+        SceneManager.LoadScene(Scenes.EndGame);
     }
 
     private void InstantiatePlayer()

@@ -12,6 +12,18 @@ public class TurtleBehaviour : MonoBehaviour
     public ClimbingLadderState mLadder;
     public OnBoatState mBoat;
 
+    public GameObject box;
+    public GameObject plank;
+    public GameObject stair;
+    public GameObject boat;
+
+    private bool IsBoxTrigger;
+    private bool IsPlankTrigger;
+    private bool IsStairTrigger;
+    private bool IsBoatTrigger;
+
+
+
     private StateMachine mStateMachine;
     //private Life mLife;
 
@@ -74,14 +86,56 @@ public class TurtleBehaviour : MonoBehaviour
     {
         switch (draw)
         {
+            case DrawType.X:
+                mVineTrapped.ApplyCutDraw();
+                break;
+
             case DrawType.Stair:
+                if (IsStairTrigger)
+                    stair.SetActive(true);
                 break;
             case DrawType.Box:
+                if (IsBoxTrigger)
+                    box.SetActive(true);
                 break;
             case DrawType.Plank:
+                if (IsPlankTrigger)
+                    plank.SetActive(true);
                 break;
             case DrawType.Boat:
+                if (IsBoatTrigger)
+                    boat.SetActive(true);
                 break;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (hit.tag == Tags.BoxTrigger)
+            IsBoxTrigger = true;
+
+        if (hit.tag == Tags.PlankTrigger)
+            IsPlankTrigger = true;
+
+        if (hit.tag == Tags.StairTrigger)
+            IsStairTrigger = true;
+
+        if (hit.tag == Tags.BoatTrigger)
+            IsBoatTrigger = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D hit)
+    {
+        if (hit.tag == Tags.BoxTrigger)
+            IsBoxTrigger = false;
+
+        if (hit.tag == Tags.PlankTrigger)
+            IsPlankTrigger = false;
+
+        if (hit.tag == Tags.StairTrigger)
+            IsStairTrigger = false;
+
+        if (hit.tag == Tags.BoatTrigger)
+            IsBoatTrigger = false;
     }
 }

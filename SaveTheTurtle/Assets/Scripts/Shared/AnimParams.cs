@@ -7,4 +7,5 @@ public static class AnimParams
 
     public static string IsFalling = "IsFalling";
     public static string IsVineTrapped = "IsVineTrapped";
+    public static string IsBoat = "IsBoat";
 }

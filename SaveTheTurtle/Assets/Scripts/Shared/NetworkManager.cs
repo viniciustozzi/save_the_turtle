@@ -5,7 +5,6 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.Text;
 using System;
-using Newtonsoft.Json;
 using System.IO;
 
 public class NetworkManager : MonoBehaviour
@@ -22,9 +21,8 @@ public class NetworkManager : MonoBehaviour
         postHeader.Add("Content-Type", "application/json");
 
         string jsonData = JsonConvert.SerializeObject(data);
-        Debug.Log(jsonData);
 
-        SaveFile(jsonData);
+        //SaveFile(jsonData);
 
         byte[] byteData = Encoding.ASCII.GetBytes(jsonData);
 
@@ -55,7 +53,7 @@ public class NetworkManager : MonoBehaviour
         // check for errors
         if (www.error == null)
         {
-            Debug.Log("WWW Ok!: " + www.data);
+            //Debug.Log("WWW Ok!: " + www.data);
 
             if (mCallback != null)
             {
